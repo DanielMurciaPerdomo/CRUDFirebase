@@ -22,6 +22,7 @@ public class Ventana extends javax.swing.JFrame {
         Conexion.conectar();
         initComponents();
         this.setLocationRelativeTo(null);
+        Controlador.llenarTabla(tblVeterinaria);
     }
 
     /**
@@ -75,6 +76,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
 
@@ -104,10 +110,10 @@ public class Ventana extends javax.swing.JFrame {
         jLabel4.setText("Raza de la mascota: *");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel5.setText("Peso de la mascota: *");
+        jLabel5.setText("Peso de la mascota (Kg): *");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel6.setText("Tamaño de la mascota:");
+        jLabel6.setText("Tamaño de la mascota (m): *");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel7.setText("Alergias:");
@@ -271,6 +277,10 @@ public class Ventana extends javax.swing.JFrame {
         actualizar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        eliminar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +352,8 @@ public class Ventana extends javax.swing.JFrame {
         }
         int id = (int) (Math.random() * 1000000);
         double cedula = Double.parseDouble(tbCedula.getText());
+        double peso = Double.parseDouble(tbPeso.getText());
+        double tamaño = Double.parseDouble(tbTamaño.getText());
         
        try{
            Map<String, Object> datos = new HashMap<>();
@@ -349,8 +361,8 @@ public class Ventana extends javax.swing.JFrame {
            datos.put("Nombre", tbNombre.getText());
            datos.put("Nombre mascota", tbMascota.getText());
            datos.put("Raza mascota", tbRaza.getText());
-           datos.put("Peso mascota", tbPeso.getText());
-           datos.put("Tamaño mascota", tbTamaño.getText());
+           datos.put("Peso mascota", peso);
+           datos.put("Tamaño mascota", tamaño);
            datos.put("Alergias", taAlergias.getText());
            Controlador.guardar("Veterinaria",String.valueOf(id),datos);
            JOptionPane.showMessageDialog(null,"Guardado con exito");
@@ -358,12 +370,16 @@ public class Ventana extends javax.swing.JFrame {
        }catch(HeadlessException e){
            System.err.println("Error: "+e.getMessage());
            JOptionPane.showMessageDialog(null,"Error al guardar");
+       }finally{
+           Controlador.llenarTabla(tblVeterinaria);
        }
     }
     
     private void actualizar() {
         
         double cedula = Double.parseDouble(tbCedula.getText());
+        double peso = Double.parseDouble(tbPeso.getText());
+        double tamaño = Double.parseDouble(tbTamaño.getText());
         
         if(tbCedula.getText().equals("") && tbMascota.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota");
@@ -387,8 +403,8 @@ public class Ventana extends javax.swing.JFrame {
            datos.put("Nombre", tbNombre.getText());
            datos.put("Nombre mascota", tbMascota.getText());
            datos.put("Raza mascota", tbRaza.getText());
-           datos.put("Peso mascota", tbPeso.getText());
-           datos.put("Tamaño mascota", tbTamaño.getText());
+           datos.put("Peso mascota", peso);
+           datos.put("Tamaño mascota", tamaño);
            datos.put("Alergias", taAlergias.getText());
            Controlador.actualizar("Veterinaria",String.valueOf(respuesta),datos);
            JOptionPane.showMessageDialog(null,"Actualizado con exito");
@@ -396,9 +412,37 @@ public class Ventana extends javax.swing.JFrame {
        }catch(HeadlessException e){
            System.err.println("Error: "+e.getMessage());
            JOptionPane.showMessageDialog(null,"Error al actualizar");
+       }finally{
+           Controlador.llenarTabla(tblVeterinaria);
        }
     }
     
+    private void eliminar() {
+        double cedula = Double.parseDouble(tbCedula.getText());
+        
+        if(tbCedula.getText().equals("") && tbMascota.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota, para eliminar el registro");
+            return;
+        }
+        int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
+        
+        if(respuesta == -1){
+            JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
+            return;
+        }
+        try{
+            JOptionPane.showConfirmDialog(null, "Seguro desea borrar todos los datos del registro",
+                    "Confirmacion",JOptionPane.OK_CANCEL_OPTION);
+           Controlador.eliminar("Veterinaria",String.valueOf(respuesta));
+           JOptionPane.showMessageDialog(null,"Eliminado con exito");
+           clearForm();
+       }catch(HeadlessException e){
+           System.err.println("Error: "+e.getMessage());
+           JOptionPane.showMessageDialog(null,"Error al eliminar");
+       }finally{
+            Controlador.llenarTabla(tblVeterinaria);
+        }
+    }
     
     void clearForm(){
         tbCedula.setText("");
@@ -409,6 +453,8 @@ public class Ventana extends javax.swing.JFrame {
         tbTamaño.setText("");
         taAlergias.setText("");        
     }
+
+    
 
     
 }
