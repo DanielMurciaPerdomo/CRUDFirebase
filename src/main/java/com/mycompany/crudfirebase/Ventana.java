@@ -4,9 +4,14 @@
  */
 package com.mycompany.crudfirebase;
 
+import java.awt.HeadlessException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author USUARIO
+ * @author Daniel Murcia
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -14,6 +19,7 @@ public class Ventana extends javax.swing.JFrame {
      * Creates new form Ventana
      */
     public Ventana() {
+        Conexion.conectar();
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -241,7 +247,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void tbCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbCedulaActionPerformed
@@ -249,7 +255,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_tbCedulaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
@@ -313,4 +319,36 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTextField tbTamaño;
     private javax.swing.JTable tblVeterinaria;
     // End of variables declaration//GEN-END:variables
+
+    private void guardar() {
+        
+        double cedula = Double.parseDouble(tbCedula.getText());
+        
+       try{
+           Map<String, Object> datos = new HashMap<>();
+           datos.put("Cedula", cedula);
+           datos.put("Nombre", tbNombre.getText());
+           datos.put("Nombre mascota", tbMascota.getText());
+           datos.put("Raza mascota", tbRaza.getText());
+           datos.put("Peso mascota", tbPeso.getText());
+           datos.put("Tamaño mascota", tbTamaño.getText());
+           datos.put("Alergias", taAlergias.getText());
+           Controlador.guardar("Veterinaria",String.valueOf(cedula),datos);
+           JOptionPane.showMessageDialog(null,"Guardado con exito");
+           clearForm();
+       }catch(HeadlessException e){
+           System.err.println("Error: "+e.getMessage());
+           JOptionPane.showMessageDialog(null,"Error al guardar");
+       }
+    }
+    
+    void clearForm(){
+        tbCedula.setText("");
+        tbNombre.setText("");
+        tbMascota.setText("");
+        tbRaza.setText("");
+        tbPeso.setText("");
+        tbTamaño.setText("");
+        taAlergias.setText("");        
+    }
 }
