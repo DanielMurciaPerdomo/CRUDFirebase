@@ -68,6 +68,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
 
@@ -87,19 +92,19 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblVeterinaria);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel1.setText("Cedula del cliente:");
+        jLabel1.setText("Cedula del cliente: *");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel2.setText("Nombre completo del cliente:");
+        jLabel2.setText("Nombre completo del cliente: *");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel3.setText("Nombre de la mascota:");
+        jLabel3.setText("Nombre de la mascota: *");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel4.setText("Raza de la mascota:");
+        jLabel4.setText("Raza de la mascota: *");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
-        jLabel5.setText("Peso de la mascota:");
+        jLabel5.setText("Peso de la mascota: *");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel6.setText("Tamaño de la mascota:");
@@ -146,13 +151,13 @@ public class Ventana extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(344, 344, 344)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnBuscar)
@@ -167,24 +172,26 @@ public class Ventana extends javax.swing.JFrame {
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tbCedula)
-                            .addComponent(tbNombre)
-                            .addComponent(tbMascota)
-                            .addComponent(tbRaza)
-                            .addComponent(tbPeso)
-                            .addComponent(tbTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tbCedula)
+                                    .addComponent(tbNombre)
+                                    .addComponent(tbMascota)
+                                    .addComponent(tbRaza)
+                                    .addComponent(tbPeso)
+                                    .addComponent(tbTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
                         .addGap(15, 15, 15))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -236,7 +243,9 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,6 +266,10 @@ public class Ventana extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        actualizar();
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,7 +334,13 @@ public class Ventana extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void guardar() {
-        
+        if(tbCedula.getText().equals("") || tbNombre.getText().equals("") ||
+                tbMascota.getText().equals("") || tbRaza.getText().equals("") ||
+                tbPeso.getText().equals("") || tbTamaño.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Error, faltan campos por llenar");
+            return;
+        }
+        int id = (int) (Math.random() * 1000000);
         double cedula = Double.parseDouble(tbCedula.getText());
         
        try{
@@ -333,7 +352,7 @@ public class Ventana extends javax.swing.JFrame {
            datos.put("Peso mascota", tbPeso.getText());
            datos.put("Tamaño mascota", tbTamaño.getText());
            datos.put("Alergias", taAlergias.getText());
-           Controlador.guardar("Veterinaria",String.valueOf(cedula),datos);
+           Controlador.guardar("Veterinaria",String.valueOf(id),datos);
            JOptionPane.showMessageDialog(null,"Guardado con exito");
            clearForm();
        }catch(HeadlessException e){
@@ -341,6 +360,45 @@ public class Ventana extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Error al guardar");
        }
     }
+    
+    private void actualizar() {
+        
+        double cedula = Double.parseDouble(tbCedula.getText());
+        
+        if(tbCedula.getText().equals("") && tbMascota.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota");
+            return;
+        }
+        if(tbNombre.getText().equals("") || tbRaza.getText().equals("") ||
+                tbPeso.getText().equals("") || tbTamaño.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Por favor revise que todos los valores menos de Alergia esten obligatoriamente ocupados");
+            return;
+        }
+        
+        int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
+        
+        if(respuesta == -1){
+            JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
+            return;
+        }
+       try{
+           Map<String, Object> datos = new HashMap<>();
+           datos.put("Cedula", cedula);
+           datos.put("Nombre", tbNombre.getText());
+           datos.put("Nombre mascota", tbMascota.getText());
+           datos.put("Raza mascota", tbRaza.getText());
+           datos.put("Peso mascota", tbPeso.getText());
+           datos.put("Tamaño mascota", tbTamaño.getText());
+           datos.put("Alergias", taAlergias.getText());
+           Controlador.actualizar("Veterinaria",String.valueOf(respuesta),datos);
+           JOptionPane.showMessageDialog(null,"Actualizado con exito");
+           clearForm();
+       }catch(HeadlessException e){
+           System.err.println("Error: "+e.getMessage());
+           JOptionPane.showMessageDialog(null,"Error al actualizar");
+       }
+    }
+    
     
     void clearForm(){
         tbCedula.setText("");
@@ -351,4 +409,6 @@ public class Ventana extends javax.swing.JFrame {
         tbTamaño.setText("");
         taAlergias.setText("");        
     }
+
+    
 }

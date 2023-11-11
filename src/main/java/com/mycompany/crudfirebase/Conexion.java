@@ -31,6 +31,5 @@ public class Conexion {
         } catch (IOException e) {
             System.err.print("Error "+e.getMessage());
         }
-
     }
 }
