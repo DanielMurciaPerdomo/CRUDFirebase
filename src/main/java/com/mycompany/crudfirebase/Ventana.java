@@ -38,7 +38,6 @@ public class Ventana extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVeterinaria = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -81,8 +80,6 @@ public class Ventana extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-
-        btnLimpiar.setText("Limpiar");
 
         tblVeterinaria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,49 +153,45 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(344, 344, 344)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tbCedula)
+                            .addComponent(tbNombre)
+                            .addComponent(tbMascota)
+                            .addComponent(tbRaza)
+                            .addComponent(tbPeso)
+                            .addComponent(tbTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addGap(15, 15, 15))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(btnActualizar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tbCedula)
-                                    .addComponent(tbNombre)
-                                    .addComponent(tbMascota)
-                                    .addComponent(tbRaza)
-                                    .addComponent(tbPeso)
-                                    .addComponent(tbTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
-                        .addGap(15, 15, 15))))
+                        .addComponent(btnEliminar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +231,6 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnActualizar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnLimpiar)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +262,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_tbCedulaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
+        buscar();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -321,7 +313,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -344,105 +335,131 @@ public class Ventana extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void guardar() {
-        if(tbCedula.getText().equals("") || tbNombre.getText().equals("") ||
-                tbMascota.getText().equals("") || tbRaza.getText().equals("") ||
-                tbPeso.getText().equals("") || tbTamaño.getText().equals("")){
+        if (tbCedula.getText().equals("") || tbNombre.getText().equals("")
+                || tbMascota.getText().equals("") || tbRaza.getText().equals("")
+                || tbPeso.getText().equals("") || tbTamaño.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Error, faltan campos por llenar");
-            return;
+        } else {
+            int id = (int) (Math.random() * 1000000);
+            double cedula = Double.parseDouble(tbCedula.getText());
+            double peso = Double.parseDouble(tbPeso.getText());
+            double tamaño = Double.parseDouble(tbTamaño.getText());
+
+            try {
+                Map<String, Object> datos = new HashMap<>();
+                datos.put("Cedula", cedula);
+                datos.put("Nombre", tbNombre.getText());
+                datos.put("Nombre mascota", tbMascota.getText());
+                datos.put("Raza mascota", tbRaza.getText());
+                datos.put("Peso mascota", peso);
+                datos.put("Tamaño mascota", tamaño);
+                datos.put("Alergias", taAlergias.getText());
+                Controlador.guardar("Veterinaria", String.valueOf(id), datos);
+                JOptionPane.showMessageDialog(null, "Guardado con exito");
+                clearForm();
+            } catch (HeadlessException e) {
+                System.err.println("Error: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al guardar");
+            } finally {
+                Controlador.llenarTabla(tblVeterinaria);
+            }
         }
-        int id = (int) (Math.random() * 1000000);
-        double cedula = Double.parseDouble(tbCedula.getText());
-        double peso = Double.parseDouble(tbPeso.getText());
-        double tamaño = Double.parseDouble(tbTamaño.getText());
-        
-       try{
-           Map<String, Object> datos = new HashMap<>();
-           datos.put("Cedula", cedula);
-           datos.put("Nombre", tbNombre.getText());
-           datos.put("Nombre mascota", tbMascota.getText());
-           datos.put("Raza mascota", tbRaza.getText());
-           datos.put("Peso mascota", peso);
-           datos.put("Tamaño mascota", tamaño);
-           datos.put("Alergias", taAlergias.getText());
-           Controlador.guardar("Veterinaria",String.valueOf(id),datos);
-           JOptionPane.showMessageDialog(null,"Guardado con exito");
-           clearForm();
-       }catch(HeadlessException e){
-           System.err.println("Error: "+e.getMessage());
-           JOptionPane.showMessageDialog(null,"Error al guardar");
-       }finally{
-           Controlador.llenarTabla(tblVeterinaria);
-       }
     }
     
-    private void actualizar() {
-        
-        double cedula = Double.parseDouble(tbCedula.getText());
-        double peso = Double.parseDouble(tbPeso.getText());
-        double tamaño = Double.parseDouble(tbTamaño.getText());
-        
-        if(tbCedula.getText().equals("") && tbMascota.getText().equals("")){
+    private void actualizar() {   
+        if (tbCedula.getText().equals("") && tbMascota.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota");
-            return;
-        }
-        if(tbNombre.getText().equals("") || tbRaza.getText().equals("") ||
-                tbPeso.getText().equals("") || tbTamaño.getText().equals("")){
+        } else if (tbNombre.getText().equals("") || tbRaza.getText().equals("")
+                || tbPeso.getText().equals("") || tbTamaño.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor revise que todos los valores menos de Alergia esten obligatoriamente ocupados");
-            return;
+        } else {
+
+            double cedula = Double.parseDouble(tbCedula.getText());
+            double peso = Double.parseDouble(tbPeso.getText());
+            double tamaño = Double.parseDouble(tbTamaño.getText());
+
+            int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
+
+            if (respuesta == -1) {
+                JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
+                return;
+            }
+            try {
+                Map<String, Object> datos = new HashMap<>();
+                datos.put("Cedula", cedula);
+                datos.put("Nombre", tbNombre.getText());
+                datos.put("Nombre mascota", tbMascota.getText());
+                datos.put("Raza mascota", tbRaza.getText());
+                datos.put("Peso mascota", peso);
+                datos.put("Tamaño mascota", tamaño);
+                datos.put("Alergias", taAlergias.getText());
+                Controlador.actualizar("Veterinaria", String.valueOf(respuesta), datos);
+                JOptionPane.showMessageDialog(null, "Actualizado con exito");
+                clearForm();
+            } catch (HeadlessException e) {
+                System.err.println("Error: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al actualizar");
+            } finally {
+                Controlador.llenarTabla(tblVeterinaria);
+            }
         }
-        
-        int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
-        
-        if(respuesta == -1){
-            JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
-            return;
-        }
-       try{
-           Map<String, Object> datos = new HashMap<>();
-           datos.put("Cedula", cedula);
-           datos.put("Nombre", tbNombre.getText());
-           datos.put("Nombre mascota", tbMascota.getText());
-           datos.put("Raza mascota", tbRaza.getText());
-           datos.put("Peso mascota", peso);
-           datos.put("Tamaño mascota", tamaño);
-           datos.put("Alergias", taAlergias.getText());
-           Controlador.actualizar("Veterinaria",String.valueOf(respuesta),datos);
-           JOptionPane.showMessageDialog(null,"Actualizado con exito");
-           clearForm();
-       }catch(HeadlessException e){
-           System.err.println("Error: "+e.getMessage());
-           JOptionPane.showMessageDialog(null,"Error al actualizar");
-       }finally{
-           Controlador.llenarTabla(tblVeterinaria);
-       }
     }
     
     private void eliminar() {
-        double cedula = Double.parseDouble(tbCedula.getText());
-        
-        if(tbCedula.getText().equals("") && tbMascota.getText().equals("")){
+        if (tbCedula.getText().equals("") || tbMascota.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota, para eliminar el registro");
-            return;
-        }
-        int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
-        
-        if(respuesta == -1){
-            JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
-            return;
-        }
-        try{
-            JOptionPane.showConfirmDialog(null, "Seguro desea borrar todos los datos del registro",
-                    "Confirmacion",JOptionPane.OK_CANCEL_OPTION);
-           Controlador.eliminar("Veterinaria",String.valueOf(respuesta));
-           JOptionPane.showMessageDialog(null,"Eliminado con exito");
-           clearForm();
-       }catch(HeadlessException e){
-           System.err.println("Error: "+e.getMessage());
-           JOptionPane.showMessageDialog(null,"Error al eliminar");
-       }finally{
-            Controlador.llenarTabla(tblVeterinaria);
+        } else {
+            double cedula = Double.parseDouble(tbCedula.getText());
+            
+            int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
+
+            if (respuesta == -1) {
+                JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
+                return;
+            }
+            try {
+                int i = JOptionPane.showConfirmDialog(null, "Seguro desea borrar todos los datos del registro",
+                        "Confirmacion", JOptionPane.OK_CANCEL_OPTION);
+                if (i == 2) {
+                    JOptionPane.showMessageDialog(null, "Cancelado");
+                } else {
+                    Controlador.eliminar("Veterinaria", String.valueOf(respuesta));
+                    JOptionPane.showMessageDialog(null, "Eliminado con exito");
+                    clearForm();
+                }
+            } catch (HeadlessException e) {
+                System.err.println("Error: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+            } finally {
+                Controlador.llenarTabla(tblVeterinaria);
+            }
         }
     }
+    
+     private void buscar() {
+         
+         int i = JOptionPane.showConfirmDialog(null, "Desea buscar todos los registros?",
+                 "Confirmacion", JOptionPane.YES_NO_CANCEL_OPTION);
+         if (i == 1) {
+             if (tbCedula.getText().equals("") || tbMascota.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null, "Por favor especifique cedula y nombre de la mascota, para buscar el registro");
+             } else {
+                 double cedula = Double.parseDouble(tbCedula.getText());
+
+                 int respuesta = Controlador.buscarId(cedula, tbMascota.getText());
+
+                 if (respuesta == -1) {
+                     JOptionPane.showMessageDialog(null, "No se encontro este registro, deberia darle en guardar o revisar los datos correctos");
+                 } else {
+                     Controlador.tablaBuscada(tblVeterinaria, respuesta);
+                     clearForm();
+                 }
+             }       
+        }else{
+             Controlador.llenarTabla(tblVeterinaria);
+             clearForm();
+         }
+     }
     
     void clearForm(){
         tbCedula.setText("");
@@ -452,9 +469,5 @@ public class Ventana extends javax.swing.JFrame {
         tbPeso.setText("");
         tbTamaño.setText("");
         taAlergias.setText("");        
-    }
-
-    
-
-    
+    }    
 }

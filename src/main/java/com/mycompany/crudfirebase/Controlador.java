@@ -138,4 +138,51 @@ public class Controlador {
         table.setModel(model);
     }
     
+    public static void tablaBuscada(JTable table, int id){
+        String alergia = "";
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Cedula");
+        model.addColumn("Nombre propietario");
+        model.addColumn("Nombre mascota");
+        model.addColumn("Raza");
+        model.addColumn("Peso (Kg)");
+        model.addColumn("Tamaño (m)");
+        model.addColumn("Alergias");
+        try {
+            CollectionReference registro = Conexion.bd.collection("Veterinaria");
+            ApiFuture<QuerySnapshot> querySnap = registro.get();
+
+            for (DocumentSnapshot document : querySnap.get().getDocuments()) {
+                int i = Integer.parseInt(document.getId());
+                if (i == id) {
+                    alergia = document.getString("Alergias");
+                    if (alergia.equals("")) {
+                        model.addRow(new Object[]{
+                            document.getDouble("Cedula"),
+                            document.getString("Nombre"),
+                            document.getString("Nombre mascota"),
+                            document.getString("Raza mascota"),
+                            document.getDouble("Peso mascota"),
+                            document.getDouble("Tamaño mascota"),
+                            "No tiene alergias"
+                        });
+                    } else {
+                        model.addRow(new Object[]{
+                            document.getDouble("Cedula"),
+                            document.getString("Nombre"),
+                            document.getString("Nombre mascota"),
+                            document.getString("Raza mascota"),
+                            document.getDouble("Peso mascota"),
+                            document.getDouble("Tamaño mascota"),
+                            document.getString("Alergias")
+                        });
+                    }
+                }
+            }
+        } catch (InterruptedException | NumberFormatException | ExecutionException e) {
+            System.err.println("Error: "+e.getMessage());
+        }
+        table.setModel(model);
+    }
+
 }
